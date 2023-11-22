@@ -3,7 +3,7 @@ package com.booker.application;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.booker.application.dto.LivroInputDTO;
+import com.booker.application.dto.LivroDTO;
 import com.booker.domain.LivroService;
 import com.booker.infrastructure.migrations.CreateTableProduto;
 
@@ -39,8 +39,8 @@ public class Menu {
         System.out.print("Digite o ano do livro: ");
         ano = scInt.nextInt();
 
-        service.criarLivro(new LivroInputDTO(nome, autor, isbn, editora, genero, String.valueOf(ano)));
-        LivroInputDTO livro = service.resgatarLivro(isbn);
+        service.criarLivro(new LivroDTO(nome, autor, isbn, editora, genero, String.valueOf(ano)));
+        LivroDTO livro = service.resgatarLivro(isbn);
         System.out.println("Titulo: " + livro.getTitulo());
         System.out.println("Autor: " + livro.getAutor());
         System.out.println("ISBN: " + livro.getISBN());
