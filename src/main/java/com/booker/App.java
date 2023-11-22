@@ -1,9 +1,8 @@
 package com.booker;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
-import com.booker.migrations.CreateTableProduto;
+import com.booker.domain.LivroService;
+import com.booker.infrastructure.entities.Livro;
+import com.booker.infrastructure.migrations.CreateTableProduto;
 
 public class App 
 {
@@ -12,25 +11,15 @@ public class App
         CreateTableProduto createTableProduto = new CreateTableProduto();
         createTableProduto.createProdutos();
 
-        ConnectionSQL connectionSQL = new ConnectionSQL();
-        Connection conn = connectionSQL.connect();
-
-        PreparedStatement preparedStatement;
-
-        String query = "INSERT INTO livros(titulo, autor, isbn, editora, genero, ano) values (?, ?, ?, ?, ?, ?)";
-
-        preparedStatement = conn.prepareStatement(query);
-        preparedStatement.setString(1, "Titulo do Livro");
-        preparedStatement.setString(2, "Autor do Livro");
-        preparedStatement.setString(3, "ISBN do Livro");
-        preparedStatement.setString(4, "Editora do Livro");
-        preparedStatement.setString(5, "Genero do Livro");
-        preparedStatement.setString(6, "Ano do Livro");
-
-        preparedStatement.execute();
-
-        System.out.println("Produto foi criado.");
-
+        LivroService service = new LivroService();
+        service.criarLivro();
+        Livro livro = service.resgatarLivro("ISBN do Livro");
+        System.out.println("Titulo: " + livro.getTitulo());
+        System.out.println("Autor: " + livro.getAutor());
+        System.out.println("ISBN: " + livro.getISBN());
+        System.out.println("Editora: " + livro.getEditora());
+        System.out.println("Genero: " + livro.getGenero());
+        System.out.println("Ano de lançamento: " + livro.getAno());
 
     }
 }
