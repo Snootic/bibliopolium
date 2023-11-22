@@ -1,5 +1,7 @@
 package com.booker.infrastructure.entities;
 
+import com.booker.application.dto.LivroDTO;
+
 public class Livro {
     private String titulo;
     private String autor;
@@ -15,6 +17,15 @@ public class Livro {
         this.editora = editora;
         this.genero = genero;
         this.ano = ano;
+    }
+
+    public Livro(LivroDTO data){
+        this.titulo = data.getTitulo();
+        this.autor = data.getAutor();
+        this.isbn = data.getISBN();
+        this.editora = data.getEditora();
+        this.genero = data.getGenero();
+        this.ano = data.getAno();
     }
 
     public String getTitulo(){

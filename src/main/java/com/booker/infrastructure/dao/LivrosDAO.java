@@ -9,7 +9,7 @@ import com.booker.ConnectionSQL;
 import com.booker.infrastructure.entities.Livro;
 
 public class LivrosDAO{
-    public void criar() throws SQLException, Exception{
+    public void criar(Livro livro) throws SQLException, Exception{
         ConnectionSQL connectionSQL = new ConnectionSQL();
         Connection conn = connectionSQL.connect();
 
@@ -18,12 +18,12 @@ public class LivrosDAO{
         String query = "INSERT INTO livros(titulo, autor, isbn, editora, genero, ano) values (?, ?, ?, ?, ?, ?)";
 
         preparedStatement = conn.prepareStatement(query);
-        preparedStatement.setString(1, "Titulo do Livro");
-        preparedStatement.setString(2, "Autor do Livro");
-        preparedStatement.setString(3, "ISBN do Livro");
-        preparedStatement.setString(4, "Editora do Livro");
-        preparedStatement.setString(5, "Genero do Livro");
-        preparedStatement.setString(6, "Ano do Livro");
+        preparedStatement.setString(1, livro.getTitulo());
+        preparedStatement.setString(2, livro.getAutor());
+        preparedStatement.setString(3, livro.getISBN());
+        preparedStatement.setString(4, livro.getEditora());
+        preparedStatement.setString(5, livro.getGenero());
+        preparedStatement.setString(6, livro.getAno());
 
         preparedStatement.execute();
 
