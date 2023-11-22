@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.booker.ConnectionSQL;
+import com.booker.infrastructure.ConnectionSQL;
 
 public class CreateTableProduto {
 

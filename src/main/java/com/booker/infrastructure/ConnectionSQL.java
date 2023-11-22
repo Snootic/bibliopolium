@@ -1,4 +1,4 @@
-package com.booker;
+package com.booker.infrastructure;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

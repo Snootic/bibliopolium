@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.booker.ConnectionSQL;
+import com.booker.infrastructure.ConnectionSQL;
 import com.booker.infrastructure.entities.Livro;
 
 public class LivrosDAO{
