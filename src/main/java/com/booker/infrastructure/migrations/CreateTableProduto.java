@@ -1,4 +1,4 @@
-package com.booker.migrations;
+package com.booker.infrastructure.migrations;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
